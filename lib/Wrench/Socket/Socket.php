@@ -205,7 +205,8 @@ abstract class Socket extends Configurable implements Resource
     public function disconnect()
     {
         if ($this->socket) {
-            stream_socket_shutdown($this->socket, STREAM_SHUT_RDWR);
+            //stream_socket_shutdown($this->socket, STREAM_SHUT_RDWR);
+            fclose($this->socket);
         }
         $this->socket = null;
         $this->connected = false;
