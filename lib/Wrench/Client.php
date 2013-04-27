@@ -1,20 +1,5 @@
 <?php
 
-namespace Wrench;
-
-use Wrench\Payload\Payload;
-
-use Wrench\Payload\PayloadHandler;
-
-use Wrench\Util\Configurable;
-
-use Wrench\Socket\ClientSocket;
-use Wrench\Protocol\Protocol;
-use Wrench\Protocol\Rfc6455Protocol;
-
-use \InvalidArgumentException;
-use \RuntimeException;
-
 /**
  * Client class
  *
@@ -110,7 +95,7 @@ class Client extends Configurable
     protected function configure(array $options)
     {
         $options = array_merge(array(
-            'socket_class'     => 'Wrench\\Socket\\ClientSocket',
+            'socket_class'     => 'ClientSocket',
             'on_data_callback' => null
         ), $options);
 

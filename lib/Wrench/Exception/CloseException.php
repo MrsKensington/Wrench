@@ -1,10 +1,5 @@
 <?php
 
-namespace Wrench\Exception;
-
-use Wrench\Protocol\Protocol;
-use Wrench\Exception\Exception as WrenchException;
-
 /**
  * Close connection exception
  */

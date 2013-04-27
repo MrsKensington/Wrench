@@ -1,9 +1,5 @@
 <?php
 
-namespace Wrench\Listener;
-
-use Wrench\Connection;
-
 interface HandshakeRequestListener
 {
     /**

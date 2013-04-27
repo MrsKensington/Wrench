@@ -1,7 +1,5 @@
 <?php
 
-namespace Wrench\Util;
-
 class Ssl
 {
 	/**

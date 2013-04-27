@@ -1,10 +1,5 @@
 <?php
 
-namespace Wrench\Listener;
-
-use Wrench\Util\Configurable;
-use Wrench\Server;
-
 class RateLimiter extends Configurable implements Listener
 {
     /**
@@ -53,7 +48,7 @@ class RateLimiter extends Configurable implements Listener
     }
 
     /**
-     * @see Wrench\Listener.Listener::listen()
+     * @see Listener::listen()
      */
     public function listen(Server $server)
     {

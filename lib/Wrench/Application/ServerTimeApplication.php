@@ -1,10 +1,5 @@
 <?php
 
-namespace Wrench\Application;
-
-use Wrench\Application\Application;
-use Wrench\Application\NamedApplication;
-
 /**
  * Example application demonstrating how to use Application::onUpdate
  *
@@ -16,7 +11,7 @@ class ServerTimeApplication extends Application
     protected $lastTimestamp = null;
 
     /**
-     * @see Wrench\Application.Application::onConnect()
+     * @see Application.Application::onConnect()
      */
     public function onConnect($client)
     {
@@ -24,7 +19,7 @@ class ServerTimeApplication extends Application
     }
 
     /**
-     * @see Wrench\Application.Application::onUpdate()
+     * @see Application.Application::onUpdate()
      */
     public function onUpdate()
     {

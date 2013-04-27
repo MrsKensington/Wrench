@@ -1,15 +1,5 @@
 <?php
 
-namespace Wrench;
-
-use Wrench\Protocol\Protocol;
-use Wrench\Resource;
-use Wrench\Util\Configurable;
-use Wrench\Exception\Exception as WrenchException;
-use Wrench\Exception\CloseException;
-use \Exception;
-use \Countable;
-
 class ConnectionManager extends Configurable implements Countable
 {
     const TIMEOUT_SELECT          = 0;
@@ -63,7 +53,7 @@ class ConnectionManager extends Configurable implements Countable
     }
 
     /**
-     * @see Wrench\Socket.Socket::configure()
+     * @see Socket.Socket::configure()
      *   Options include:
      *     - timeout_select          => int, seconds, default 0
      *     - timeout_select_microsec => int, microseconds (NB: not milli), default: 200000
@@ -71,11 +61,11 @@ class ConnectionManager extends Configurable implements Countable
     protected function configure(array $options)
     {
         $options = array_merge(array(
-            'socket_master_class'     => 'Wrench\Socket\ServerSocket',
+            'socket_master_class'     => 'ServerSocket',
             'socket_master_options'   => array(),
-            'socket_client_class'     => 'Wrench\Socket\ServerClientSocket',
+            'socket_client_class'     => 'ServerClientSocket',
             'socket_client_options'   => array(),
-            'connection_class'        => 'Wrench\Connection',
+            'connection_class'        => 'Connection',
             'connection_options'      => array(),
             'timeout_select'          => self::TIMEOUT_SELECT,
             'timeout_select_microsec' => self::TIMEOUT_SELECT_MICROSEC
@@ -295,7 +285,7 @@ class ConnectionManager extends Configurable implements Countable
     }
 
     /**
-     * @return \Wrench\Server
+     * @return Server
      */
     public function getServer()
     {

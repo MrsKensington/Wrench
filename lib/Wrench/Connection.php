@@ -1,25 +1,5 @@
 <?php
 
-namespace Wrench;
-
-use Wrench\Payload\PayloadHandler;
-
-use Wrench\Protocol\Protocol;
-
-use Wrench\Payload\Payload;
-
-use Wrench\Util\Configurable;
-use Wrench\Socket\ServerClientSocket;
-use Wrench\Server;
-use Wrench\Exception as WrenchException;
-use Wrench\Exception\CloseException;
-use Wrench\Exception\ConnectionException;
-use Wrench\Exception\HandshakeException;
-use Wrench\Exception\BadRequestException;
-
-use \Exception;
-use \RuntimeException;
-
 /**
  * Represents a client connection on the server side
  *
@@ -30,7 +10,7 @@ class Connection extends Configurable
     /**
      * The connection manager
      *
-     * @var Wrench\ConnectionManager
+     * @var ConnectionManager
      */
     protected $manager;
 
@@ -111,7 +91,7 @@ class Connection extends Configurable
     /**
      * Gets the connection manager of this connection
      *
-     * @return \Wrench\ConnectionManager
+     * @return ConnectionManager
      */
     public function getConnectionManager()
     {
@@ -119,7 +99,7 @@ class Connection extends Configurable
     }
 
     /**
-     * @see Wrench\Util.Configurable::configure()
+     * @see Util.Configurable::configure()
      */
     protected function configure(array $options)
     {
@@ -480,7 +460,7 @@ class Connection extends Configurable
     /**
      * Gets the socket object
      *
-     * @return Socket\ServerClientSocket
+     * @return ServerClientSocket
      */
     public function getSocket()
     {

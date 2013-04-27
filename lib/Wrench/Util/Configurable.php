@@ -1,11 +1,5 @@
 <?php
 
-namespace Wrench\Util;
-
-use Wrench\Protocol\Protocol;
-use Wrench\Protocol\Rfc6455Protocol;
-use \InvalidArgumentException;
-
 /**
  * Configurable base class
  */
@@ -27,7 +21,7 @@ abstract class Configurable
      * @param string $uri     WebSocket URI, e.g. ws://example.org:8000/chat
      * @param array  $options (optional)
      *   Options:
-     *     - protocol             => Wrench\Protocol object, latest protocol
+     *     - protocol             => Protocol object, latest protocol
      *                                 version used if not specified
      */
     public function __construct(

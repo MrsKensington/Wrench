@@ -1,11 +1,5 @@
 <?php
 
-namespace Wrench\Frame;
-
-use Wrench\Protocol\Protocol;
-use Wrench\Exception\FrameException;
-use \InvalidArgumentException;
-
 class HybiFrame extends Frame
 {
     // First byte
@@ -47,7 +41,7 @@ class HybiFrame extends Frame
     protected $offset_mask = null;
 
     /**
-     * @see Wrench\Frame.Frame::encode()
+     * @see Frame::encode()
      *     ws-frame         = frame-fin           ; 1 bit in length
      *                        frame-rsv1          ; 1 bit in length
      *                        frame-rsv2          ; 1 bit in length
@@ -209,7 +203,7 @@ class HybiFrame extends Frame
     }
 
     /**
-     * @see Wrench\Frame.Frame::getExpectedDataLength()
+     * @see Frame::getExpectedDataLength()
      */
     protected function getExpectedBufferLength()
     {
@@ -249,7 +243,7 @@ class HybiFrame extends Frame
     }
 
     /**
-     * @see Wrench\Frame.Frame::getLength()
+     * @see Frame::getLength()
      */
     public function getLength()
     {
@@ -331,7 +325,7 @@ class HybiFrame extends Frame
     }
 
     /**
-     * @see Wrench\Frame.Frame::decodeFramePayloadFromBuffer()
+     * @see Frame::decodeFramePayloadFromBuffer()
      */
     protected function decodeFramePayloadFromBuffer()
     {
@@ -345,7 +339,7 @@ class HybiFrame extends Frame
     }
 
     /**
-     * @see Wrench\Frame.Frame::isFinal()
+     * @see Frame::isFinal()
      */
     public function isFinal()
     {
@@ -357,7 +351,7 @@ class HybiFrame extends Frame
 
     /**
      * @throws FrameException
-     * @see Wrench\Frame.Frame::getType()
+     * @see Frame::getType()
      */
     public function getType()
     {

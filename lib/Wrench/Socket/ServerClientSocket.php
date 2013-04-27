@@ -1,9 +1,5 @@
 <?php
 
-namespace Wrench\Socket;
-
-use Wrench\Socket\Socket;
-
 class ServerClientSocket extends Socket
 {
     /**

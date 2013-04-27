@@ -1,12 +1,5 @@
 <?php
 
-namespace Wrench\Payload;
-
-use Wrench\Exception\PayloadException;
-use Wrench\Exception\ConnectionException;
-use Wrench\Util\Configurable;
-use \InvalidArgumentException;
-
 /**
  * Handles chunking and splitting of payloads into frames
  */

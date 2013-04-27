@@ -1,15 +1,5 @@
 <?php
 
-namespace Wrench;
-
-use Wrench\Util\Configurable;
-
-use Wrench\Socket;
-use Wrench\Resource;
-
-use \Closure;
-use \InvalidArgumentException;
-
 /**
  * WebSocket server
  *
@@ -113,7 +103,7 @@ class Server extends Configurable
     protected function configure(array $options)
     {
         $options = array_merge(array(
-            'connection_manager_class'   => 'Wrench\ConnectionManager',
+            'connection_manager_class'   => 'ConnectionManager',
             'connection_manager_options' => array()
         ), $options);
 
@@ -154,7 +144,7 @@ class Server extends Configurable
     /**
      * Gets the connection manager
      *
-     * @return \Wrench\ConnectionManager
+     * @return ConnectionManager
      */
     public function getConnectionManager()
     {
@@ -178,7 +168,7 @@ class Server extends Configurable
     public function setLogger($logger)
     {
         if (!is_callable($logger)) {
-            throw new \InvalidArgumentException('Logger must be callable');
+            throw new InvalidArgumentException('Logger must be callable');
         }
         $this->logger = $logger;
     }

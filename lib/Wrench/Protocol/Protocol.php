@@ -1,14 +1,5 @@
 <?php
 
-namespace Wrench\Protocol;
-
-use Wrench\Payload\Payload;
-
-use Wrench\Exception\BadRequestException;
-
-use \Exception;
-use \InvalidArgumentException;
-
 /**
  * Definitions and implementation helpers for the Wrenchs protocol
  *

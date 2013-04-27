@@ -1,11 +1,5 @@
 <?php
 
-namespace Wrench\Frame;
-
-use Wrench\Payload\Payload;
-
-use Wrench\Exception\FrameException;
-
 /**
  * Represents a WebSocket frame
  */

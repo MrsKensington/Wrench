@@ -1,13 +1,5 @@
 <?php
 
-namespace Wrench\Payload;
-
-use Wrench\Frame\Frame;
-
-use Wrench\Exception\FrameException;
-
-use Wrench\Socket\Socket;
-
 /**
  * Payload class
  *
@@ -193,7 +185,7 @@ abstract class Payload
     {
         try {
             return $this->getPayload();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // __toString must not throw an exception
             return '';
         }

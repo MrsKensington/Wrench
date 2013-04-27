@@ -1,11 +1,5 @@
 <?php
 
-namespace Wrench\Socket;
-
-use Wrench\Protocol\Protocol;
-
-use Wrench\Socket\Socket;
-
 abstract class UriSocket extends Socket
 {
     protected $scheme;
@@ -18,7 +12,7 @@ abstract class UriSocket extends Socket
      * @param string $uri     WebSocket URI, e.g. ws://example.org:8000/chat
      * @param array  $options (optional)
      *   Options:
-     *     - protocol             => Wrench\Protocol object, latest protocol
+     *     - protocol             => Protocol object, latest protocol
      *                                 version used if not specified
      *     - timeout_socket       => int, seconds, default 5
      *     - server_ssl_cert_file => string, server SSL certificate
@@ -53,7 +47,7 @@ abstract class UriSocket extends Socket
 
     /**
      * @todo DNS lookup? Override getIp()?
-     * @see Wrench\Socket.Socket::getName()
+     * @see Socket::getName()
      */
     protected function getName()
     {
@@ -69,7 +63,7 @@ abstract class UriSocket extends Socket
     }
 
     /**
-     * @see Wrench\Socket.Socket::getPort()
+     * @see Socket::getPort()
      */
     public function getPort()
     {

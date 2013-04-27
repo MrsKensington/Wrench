@@ -1,11 +1,5 @@
 <?php
 
-namespace Wrench\Socket;
-
-use Wrench\Exception\ConnectionException;
-
-use Wrench\Socket\UriSocket;
-
 /**
  * Server socket
  *
@@ -24,7 +18,7 @@ class ServerSocket extends UriSocket
     protected $listening = false;
 
     /**
-     * @see Wrench\Socket.Socket::configure()
+     * @see Socket::configure()
      *   Options include:
      *     - backlog               => int, used to limit the number of outstanding
      *                                 connections in the socket's listen queue
@@ -94,7 +88,7 @@ class ServerSocket extends UriSocket
     }
 
     /**
-     * @see Wrench\Socket.UriSocket::getSocketStreamContextOptions()
+     * @see UriSocket::getSocketStreamContextOptions()
      */
     protected function getSocketStreamContextOptions()
     {
@@ -108,7 +102,7 @@ class ServerSocket extends UriSocket
     }
 
     /**
-     * @see Wrench\Socket.UriSocket::getSslStreamContextOptions()
+     * @see UriSocket::getSslStreamContextOptions()
      */
     protected function getSslStreamContextOptions()
     {

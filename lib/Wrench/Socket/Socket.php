@@ -1,15 +1,5 @@
 <?php
 
-namespace Wrench\Socket;
-
-use Wrench\Resource;
-use Wrench\Exception\ConnectionException;
-use Wrench\Exception\SocketException;
-use Wrench\Util\Configurable;
-use Wrench\Protocol\Protocol;
-use Wrench\Protocol\Rfc6455Protocol;
-use \InvalidArgumentException;
-
 /**
  * Socket class
  *
