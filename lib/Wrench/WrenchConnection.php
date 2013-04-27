@@ -151,7 +151,7 @@ class WrenchConnection extends Configurable
 
         if (extension_loaded('gmp')) {
             $hash = hash($algo, $message, true);
-            $hash = gmp_strval(gmp_init($hash, 16), 62);
+            $hash = gmp_strval(gmp_init($hash, 16), 36);
         } else {
             // @codeCoverageIgnoreStart
             $hash = hash($algo, $message);
