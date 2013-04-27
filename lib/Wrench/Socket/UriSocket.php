@@ -86,10 +86,7 @@ abstract class UriSocket extends Socket
             $options['ssl'] = $this->getSslStreamContextOptions();
         }
 
-        return stream_context_create(
-            $options,
-            array()
-        );
+        return stream_context_create($options);
     }
 
     /**
