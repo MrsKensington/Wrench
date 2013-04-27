@@ -62,9 +62,11 @@ class HybiFrame extends Frame
             throw new InvalidArgumentException('Invalid frame type');
         }
 
+	$payloadData = is_object($payload) ? $payload->__toString() : $payload;
+
         $this->type = $type;
         $this->masked = $masked;
-        $this->payload = $payload;
+        $this->payload = $payloadData;
         $this->length = strlen($this->payload);
         $this->offset_mask = null;
         $this->offset_payload = null;

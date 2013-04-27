@@ -239,6 +239,7 @@ abstract class Socket extends Configurable implements Resource
             throw new SocketException('Socket is not connected');
         }
 
+	$data = is_object($data) ? $data->__toString() : $data;
         $length = strlen($data);
 
         if ($length == 0) {
