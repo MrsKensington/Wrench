@@ -8,9 +8,9 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require(__DIR__ . '/../lib/SplClassLoader.php');
+require('../lib/WrenchClassLoader.php');
 
-$classLoader = new SplClassLoader('Wrench', __DIR__ . '/../lib');
+$classLoader = new WrenchClassLoader('../lib');
 $classLoader->register();
 
 // Generate PEM file
@@ -24,7 +24,7 @@ $organizationalUnitName = "none";
 $commonName             = "foo.lh";
 $emailAddress           = "baz@foo.lh";
 
-\Wrench\Socket::generatePEMFile(
+Socket::generatePEMFile(
     $pemFile,
     $pemPassphrase,
     $countryName,
@@ -37,7 +37,7 @@ $emailAddress           = "baz@foo.lh";
 );
 
 // User can use tls in place of ssl
-$server = new \Wrench\Server('127.0.0.1', 8000, 'ssl', $pemFile, $pemPassphrase);
+$server = new WrenchServer('127.0.0.1', 8000, 'ssl', $pemFile, $pemPassphrase);
 
 // server settings:
 $server->setMaxClients(100);
@@ -47,7 +47,7 @@ $server->setMaxConnectionsPerIp(100);
 $server->setMaxRequestsPerMinute(2000);
 
 // Hint: Status application should not be removed as it displays usefull server informations:
-$server->registerApplication('status', \Wrench\Application\StatusApplication::getInstance());
-$server->registerApplication('demo', \Wrench\Application\DemoApplication::getInstance());
+$server->registerApplication('status', StatusApplication::getInstance());
+$server->registerApplication('demo', DemoApplication::getInstance());
 
 $server->run();
