@@ -5,12 +5,12 @@ class RateLimiter extends Configurable implements Listener
     /**
      * The server being limited
      *
-     * @var Server
+     * @var WrenchServer
      */
     protected $server;
 
     /**
-     * Connection counts per IP address
+     * WrenchConnection counts per IP address
      *
      * @var array<int>
      */
@@ -50,22 +50,22 @@ class RateLimiter extends Configurable implements Listener
     /**
      * @see Listener::listen()
      */
-    public function listen(Server $server)
+    public function listen(WrenchServer $server)
     {
         $this->server = $server;
 
         $server->addListener(
-            Server::EVENT_SOCKET_CONNECT,
+            WrenchServer::EVENT_SOCKET_CONNECT,
             array($this, 'onSocketConnect')
         );
 
         $server->addListener(
-            Server::EVENT_SOCKET_DISCONNECT,
+            WrenchServer::EVENT_SOCKET_DISCONNECT,
             array($this, 'onSocketDisconnect')
         );
 
         $server->addListener(
-            Server::EVENT_CLIENT_DATA,
+            WrenchServer::EVENT_CLIENT_DATA,
             array($this, 'onClientData')
         );
     }
@@ -74,7 +74,7 @@ class RateLimiter extends Configurable implements Listener
      * Event listener
      *
      * @param resource $socket
-     * @param Connection $connection
+     * @param WrenchConnection $connection
      */
     public function onSocketConnect($socket, $connection)
     {
@@ -86,7 +86,7 @@ class RateLimiter extends Configurable implements Listener
      * Event listener
      *
      * @param resource $socket
-     * @param Connection $connection
+     * @param WrenchConnection $connection
      */
     public function onSocketDisconnect($socket, $connection)
     {
@@ -97,7 +97,7 @@ class RateLimiter extends Configurable implements Listener
      * Event listener
      *
      * @param resource $socket
-     * @param Connection $connection
+     * @param WrenchConnection $connection
      */
     public function onClientData($socket, $connection)
     {
@@ -107,7 +107,7 @@ class RateLimiter extends Configurable implements Listener
     /**
      * Idempotent
      *
-     * @param Connection $connection
+     * @param WrenchConnection $connection
      */
     protected function checkConnections($connection)
     {
@@ -121,7 +121,7 @@ class RateLimiter extends Configurable implements Listener
     /**
      * NOT idempotent, call once per connection
      *
-     * @param Connection $connection
+     * @param WrenchConnection $connection
      */
     protected function checkConnectionsPerIp($connection)
     {
@@ -149,7 +149,7 @@ class RateLimiter extends Configurable implements Listener
     /**
      * NOT idempotent, call once per disconnection
      *
-     * @param Connection $connection
+     * @param WrenchConnection $connection
      */
     protected function releaseConnection($connection)
     {
@@ -172,7 +172,7 @@ class RateLimiter extends Configurable implements Listener
     /**
      * NOT idempotent, call once per data
      *
-     * @param Connection $connection
+     * @param WrenchConnection $connection
      */
     protected function checkRequestsPerMinute($connection)
     {
@@ -198,7 +198,7 @@ class RateLimiter extends Configurable implements Listener
     /**
      * Limits the given connection
      *
-     * @param Connection $connection
+     * @param WrenchConnection $connection
      * @param string $limit Reason
      */
     protected function limit($connection, $limit)

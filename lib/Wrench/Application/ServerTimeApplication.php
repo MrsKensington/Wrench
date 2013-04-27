@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Example application demonstrating how to use Application::onUpdate
+ * Example application demonstrating how to use WrenchApplication::onUpdate
  *
  * Pushes the server time to all clients every update tick.
  */
-class ServerTimeApplication extends Application
+class ServerTimeApplication extends WrenchApplication
 {
     protected $clients = array();
     protected $lastTimestamp = null;
 
     /**
-     * @see Application.Application::onConnect()
+     * @see WrenchApplication::onConnect()
      */
     public function onConnect($client)
     {
@@ -19,7 +19,7 @@ class ServerTimeApplication extends Application
     }
 
     /**
-     * @see Application.Application::onUpdate()
+     * @see WrenchApplication::onUpdate()
      */
     public function onUpdate()
     {
@@ -31,5 +31,9 @@ class ServerTimeApplication extends Application
                 $sendto->send(date('d-m-Y H:i:s'));
             }
         }
+    }
+
+    public function onData($payload, $connection)
+    {
     }
 }

@@ -14,13 +14,13 @@ class OriginPolicy implements Listener, HandshakeRequestListener
      *
      * Closes the connection on handshake from an origin that isn't allowed
      *
-     * @param Connection $connection
+     * @param WrenchConnection $connection
      * @param string $path
      * @param string $origin
      * @param string $key
      * @param array $extensions
      */
-    public function onHandshakeRequest(Connection $connection, $path, $origin, $key, $extensions)
+    public function onHandshakeRequest(WrenchConnection $connection, $path, $origin, $key, $extensions)
     {
         if (!$this->isAllowed($origin)) {
             $connection->close(new InvalidOriginException('Origin not allowed'));
@@ -58,12 +58,12 @@ class OriginPolicy implements Listener, HandshakeRequestListener
     }
 
     /**
-     * @param Server $server
+     * @param WrenchServer $server
      */
-    public function listen(Server $server)
+    public function listen(WrenchServer $server)
     {
         $server->addListener(
-            Server::EVENT_HANDSHAKE_REQUEST,
+            WrenchServer::EVENT_HANDSHAKE_REQUEST,
             array($this, 'onHandshakeRequest')
         );
     }

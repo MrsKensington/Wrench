@@ -2,5 +2,5 @@
 
 interface Listener
 {
-    public function listen(Server $server);
+    public function listen(WrenchServer $server);
 }

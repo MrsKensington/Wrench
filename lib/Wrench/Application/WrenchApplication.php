@@ -3,7 +3,7 @@
 /**
  * Wrench Server Application
  */
-abstract class Application
+abstract class WrenchApplication
 {
     /**
      * Optional: handle a connection
@@ -26,7 +26,7 @@ abstract class Application
      * Handle data received from a client
      *
      * @param Payload $payload A payload object, that supports __toString()
-     * @param Connection $connection
+     * @param WrenchConnection $connection
      */
 	abstract public function onData($payload, $connection);
 }

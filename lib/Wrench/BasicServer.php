@@ -1,6 +1,6 @@
 <?php
 
-class BasicServer extends Server
+class BasicServer extends WrenchServer
 {
     protected $rateLimiter;
     protected $originPolicy;
@@ -20,7 +20,7 @@ class BasicServer extends Server
     }
 
     /**
-     * @see Server::configure()
+     * @see WrenchServer::configure()
      */
     protected function configure(array $options)
     {

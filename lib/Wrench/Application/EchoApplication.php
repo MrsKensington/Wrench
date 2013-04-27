@@ -3,10 +3,10 @@
 /**
  * Example application for Wrench: echo server
  */
-class EchoApplication extends Application
+class EchoApplication extends WrenchApplication
 {
     /**
-     * @see Application::onData()
+     * @see WrenchApplication::onData()
      */
     public function onData($data, $client)
     {
