@@ -122,11 +122,14 @@ class WrenchServer extends Configurable
     {
         // Default logger
         if (!isset($this->options['logger'])) {
-            $this->options['logger'] = function ($message, $priority = 'info') {
-                printf("%s: %s%s", $priority, $message, PHP_EOL);
-            };
+            $this->options['logger'] = Array($this, 'doLog');
         }
         $this->setLogger($this->options['logger']);
+    }
+
+    public function doLog($message, $priority = 'info')
+    {
+        printf("%s: %s%s", $priority, $message, PHP_EOL);
     }
 
     /**
